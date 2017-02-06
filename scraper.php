@@ -11,7 +11,7 @@ try {
     PRIMARY KEY (guid))');
 } catch (Exception $e) {
 }
-$articles = array(array('guid' => "3", 'description' => 'this is a test', 'title' => 'this is a title', 'article_timestamp' => 'date'));
+$articles = array(array('guid' => "1", 'description' => 'this is a test', 'title' => 'this is a title', 'article_timestamp' => 'date'));
 foreach ($articles as $article) {
   $exists = $db->query("SELECT * FROM data WHERE guid = " . $db->quote($article->guid))->fetchObject();
   if (!$exists) {
