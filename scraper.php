@@ -7,14 +7,6 @@ require 'scraperwiki/simple_html_dom.php';
 //$db = new PDO('sqlite:data.sqlite');
 //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$con=mysqli_connect("localhost","root","root","data");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
-
 // creating sqlite database 
 try {
   $db->query('CREATE TABLE data(
@@ -24,6 +16,16 @@ try {
     PRIMARY KEY(sno))');
 } catch (Exception $e) {
 }
+
+$con=mysqli_connect("localhost","root","root","data");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+
+
 
 function data_refine($data){
   $st = strip_tags($data);  // Removes HTML tags here
